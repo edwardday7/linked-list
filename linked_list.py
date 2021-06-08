@@ -92,6 +92,20 @@ class LinkedList:
             return
         return self.recursive_reverse_helper(self.head)
 
+    def remove(self, data):
+        """
+        Removes a node from the list iteratively.
+        """
+        if self.head.data == data:      # If the node is first element
+            self.head = self.head.next
+        
+        node = self.head
+        while node.next:
+            if node.next.data == data:
+                node.next = node.next.next
+            node = node.next
+        return
+
 
 def main():
 
@@ -114,6 +128,13 @@ def main():
     ll.recursive_reverse()
     print(ll)
 
+    ll.remove("A")
+    print(ll)
+    ll.remove("C")
+    print(ll)
+
+    ll.reverse()
+    print(ll)
 
     return
 
