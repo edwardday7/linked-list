@@ -27,9 +27,9 @@ class LinkedList:
             node = node.next
         return " -> ".join(nodes)
 
-    def insert(self, data):
+    def append(self, data):
         """
-        Inserts a node at the end of the list
+        Appends a node at the end of the list
         iteratively. 
         """
         if self.head is None:       # List is empty
@@ -40,23 +40,23 @@ class LinkedList:
             node = node.next
         node.next = Node(data)
 
-    def recursive_insert_helper(self, data, node):
+    def recursive_append_helper(self, data, node):
         """
-        Helper function for recursive insert method
+        Helper function for recursive append method
         """
         if node.next is None:
             node.next = Node(data)
             return
-        return self.recursive_insert_helper(data, node.next)
+        return self.recursive_append_helper(data, node.next)
             
 
-    def recursive_insert(self, data):
+    def recursive_append(self, data):
         """
-        Insert node at the end of the list recursively
+        Append node at the end of the list recursively
         """
         if self.head is None:
             return
-        return self.recursive_insert_helper(data, self.head)
+        return self.recursive_append_helper(data, self.head)
 
     def reverse(self):
         """
@@ -114,10 +114,10 @@ def main():
     ll.head = n1
 
     # Insert some elements
-    ll.insert("B")
-    ll.insert("C")
-    ll.recursive_insert("D")
-    ll.recursive_insert("E")
+    ll.append("B")
+    ll.append("C")
+    ll.recursive_append("D")
+    ll.recursive_append("E")
     print(ll)
 
     # Reverse the list
